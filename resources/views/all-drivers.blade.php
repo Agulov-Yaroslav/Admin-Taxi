@@ -8,18 +8,43 @@
 
         @foreach($drivers as $driver)
             <div class="container border">
-                <div class="d-flex w-100 justify-content-between mt-2">
+                <div class="row w-100 justify-content-between mt-2">
 
-                    <h5 class="mb-1">Водитель № {{ $driver->id }}<br>
+                    <h5 class="mb-1 col-10">Водитель № {{ $driver->id }}<br>
                         Имя: {{ $driver->name }}</h5>
-                    <small> Дата создания: {{ $driver->created_at->format('d/m/Y') }}</small>
+                    <div class="col text-end">
+
+
+                    <small > Дата создания: {{ $driver->created_at->format('d/m/Y') }}</small>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-9">
+                        <h5 class="mb-1"><strong>Номер водителя:</strong> {{ $driver->phone }}</h5>
+                        <h5 class="mb-1"><strong>Счет:</strong> {{ $driver->score }}</h5>
+                        <div class="d-flex">
+                            <form action="driver/delete" method="post" class="mr-3">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$driver->id}}">
+                                <button type="submit" class="btn btn-danger m-2" style="width: 110px">Удалить</button>
+                            </form>
+
+
+                            <a href="/driver/{{$driver->id}}/update" class="btn btn-primary m-2" style="width: 110px">Изменить</a>
+
+                        </div>
+                    </div>
+                    <div class="col text-end">
+                        <a href="driver/{{ $driver->id }}" class="btn btn-info btn-lg p-3 mt-4" style="height: 70px">Детальнее</a>
+                    </div>
                 </div>
 
-                <h5 class="mb-1"><strong>Номер водителя:</strong> {{ $driver->phone }}</h5>
-                <h5 class="mb-1"><strong>Счет:</strong> {{ $driver->score }}</h5>
+
             </div>
         @endforeach
             </div>
+
         <div class="col">
 
         <div class="card p-3  sticky-top">
@@ -57,8 +82,10 @@
                 <button type="submit" class="btn btn-success btn-lg mt-2">Подтвердить</button>
             </form>
         </div>
-
+        </div>
     </div>
+
+            </form>
 
             <script type="text/javascript">
                 function setCursorPosition(pos, e) {
