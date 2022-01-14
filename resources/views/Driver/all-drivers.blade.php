@@ -54,7 +54,7 @@
                 @csrf
                 <div class="form-group h3">
                     <label for="name">Имя водителя</label>
-                    <input type="text" class="form-control mt-3" name="name" id="name">
+                    <input type="text" required="required" class="form-control mt-3" name="name" id="name">
                     @error('name')
                     <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror
@@ -65,7 +65,7 @@
                     <label for="online_phone">Номер телефона:</label>
                     <input id="online_phone" name="phone" type="tel" maxlength="50"
                            autofocus="autofocus" required="required"
-                           value="+38(0__)___-__-__"
+
 
                            placeholder="+38(0__)___-__-__">
                     @error('phone')
@@ -74,7 +74,7 @@
                 </div>
                 <div class="form-group h3">
                     <label for="score">Счет</label>
-                    <input type="number" class="form-control mt-3" name="score" id="score">
+                    <input type="number" required="required" class="form-control mt-3" name="score" id="score">
                     @error('number')
                     <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror

@@ -10,8 +10,9 @@
             <div class="container border">
                 <div class="row w-100 justify-content-between mt-2">
 
-                    <h5 class="mb-1 col-10">Машина № {{ $car->id }}<br>
-                        Номер: {{ $car->number }}</h5>
+                    <h5 class="mb-1 col-10">Машина № {{ $car->id }}
+                        <br><strong>Цвет:</strong> {{ $car->color }}
+                    </h5>
                     <div class="col text-end">
 
 
@@ -22,7 +23,7 @@
                 <div class="row">
                     <div class="col-9">
                         <h5 class="mb-1"><strong>Марка:</strong> {{ $car->brand }}</h5>
-                        <h5 class="mb-1"><strong>Цвет:</strong> {{ $car->color }}</h5>
+                        <h5><strong>Номер: </strong>{{ $car->number }}</h5>
                         <div class="d-flex">
                             <form action="car/delete" method="post" class="mr-3">
                                 @csrf
@@ -31,7 +32,6 @@
                             </form>
 
 
-                            <a href="/car/{{$car->id}}/update" class="btn btn-primary m-2" style="width: 110px">Изменить</a>
 
                         </div>
                     </div>
@@ -50,32 +50,53 @@
             <div>
             <form action="/car" method="post">
                 @csrf
-                <div class="form-group h3">
-                    <label for="name">Имя водителя</label>
-                    <input type="text" class="form-control mt-3" name="name" id="name">
-                    @error('name')
-                    <div class="alert alert-danger mt-2">{{ $message }}</div>
-                    @enderror
-                </div>
 
-                <div class="form-group h3">
+                <div class="form-group h3 mb-3">
 
-                    <label for="online_phone">Номер телефона:</label>
-                    <input id="online_phone" name="phone" type="tel" maxlength="50"
+                    <label class="mb-3 " for="number">Номер машины:</label>
+                    <input id="number" name="number" type="text"
                            autofocus="autofocus" required="required"
-                           value="+38(0__)___-__-__"
-
-                           placeholder="+38(0__)___-__-__">
-                    @error('phone')
-                    <div class="alert alert-danger mt-2">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group h3">
-                    <label for="score">Счет</label>
-                    <input type="number" class="form-control mt-3" name="score" id="score">
+                            pattern="[A-Z]{2}[0-9]{4}[A-Z]{2}"
+                           placeholder="AA0000AA">
                     @error('number')
                     <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror
+                </div>
+                <div class="form-group h3">
+                    <label for="name">Марка</label>
+                    <select name="brand" required>
+                        <option></option>
+                        <option value="BMW">BMW</option>
+                        <option value="Renault">Renault</option>
+                        <option value="Toyota">Toyota</option>
+                        <option value="Kia">Kia</option>
+                        <option value="Skoda">Skoda</option>
+                        <option value="Nissan">Nissan</option>
+                        <option value="Peugeot">Peugeot</option>
+                        <option value="Volkswagen">Volkswagen</option>
+                        <option value="Hyundai">Hyundai</option>
+                        <option value="Ford">Ford</option>
+                        <option value="Mercedes">Mercedes</option>
+                        <option value="Другая марка">Другая марка</option>
+                    </select>
+                </div>
+
+                <div class="form-group h3">
+                    <label for="score">Цвет</label>
+                    <select name="color" required>
+                        <option></option>
+                        <option value="Белый">Белый</option>
+                        <option value="Черный">Черный</option>
+                        <option value="Темно серый">Темно серый</option>
+                        <option value="Светло серый">Светло серый</option>
+                        <option value="Синий">Синий</option>
+                        <option value="Красный">Красный</option>
+                        <option value="Коричневый">Коричневый</option>
+                        <option value="Желтый">Желтый</option>
+                        <option value="Зеленый">Зеленый</option>
+                        <option value="другой">другой</option>
+                    </select>
+
                 </div>
                 <button type="submit" class="btn btn-success btn-lg mt-2">Подтвердить</button>
             </form>

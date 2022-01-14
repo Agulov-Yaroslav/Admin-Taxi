@@ -12,7 +12,7 @@
                     <input type="hidden" name="id" id="id" value="{{$driver->id}}">
                     <div class="row mt-3">
                         <label class="col-3" for="name">Имя водителя:</label>
-                        <input type="text" class="col-3" name="name" id="name" value="{{ $driver->name }}">
+                        <input type="text" class="col-3" name="name" required="required" id="name" value="{{ $driver->name }}">
                         @error('name')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
@@ -32,7 +32,7 @@
 
                     <div class="row mt-3">
                         <label class="col-3" for="score">Счет:</label>
-                        <input type="number" class="col-2" name="score" id="score" value="{{ $driver->score }}">
+                        <input type="number" class="col-2" name="score" id="score" required="required" value="{{ $driver->score }}">
                         @error('number')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
