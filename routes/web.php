@@ -5,6 +5,7 @@ use App\Http\Controllers\DriverController;
 use App\Http\Controllers\DriverPageController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CarPagesController;
+use App\Http\Controllers\DriverCarController;
 
 
 Route::get('/', [DriverPageController::class, 'allDrivers'])->name('allDrivers'); //Все водители
@@ -21,6 +22,6 @@ Route::get('/car', [CarPagesController::class, 'allCars'])->name('allCars'); //�
 Route::post('/car', [CarController::class, 'addNewCar']); //Добавление новой машины
 Route::post('/car/delete', [CarController::class, 'deleteCar']); //Удаление машины
 
-Route::post('/driver/cars', [\App\Http\Controllers\DriverCarController::class, 'addConnect']); //Создание связи водителя и машины
-
+Route::post('/driver/cars', [DriverCarController::class, 'addConnect']); //Создание связи водителя и машины
+Route::post('/driver/connect/delete', [DriverCarController::class, 'delConnect']); //Удаление связи водителя и машины
 
