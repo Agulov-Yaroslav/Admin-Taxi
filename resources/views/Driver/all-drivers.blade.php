@@ -33,11 +33,13 @@
 
                             <a href="/driver/{{$driver->id}}/update" class="btn btn-primary m-2" style="width: 110px">Изменить</a>
 
+                            <a href="/driver/{{$driver->id}}/cars" class="btn btn-warning m-2" >Добавить автомобиль</a>
                         </div>
                     </div>
                     <div class="col text-end">
                         <a href="driver/{{ $driver->id }}" class="btn btn-info btn-lg p-3 mt-4" style="height: 70px">Детальнее</a>
                     </div>
+
                 </div>
 
 

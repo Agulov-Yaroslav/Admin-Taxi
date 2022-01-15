@@ -10,6 +10,7 @@ use App\Http\Controllers\CarPagesController;
 Route::get('/', [DriverPageController::class, 'allDrivers'])->name('allDrivers'); //Все водители
 Route::get('/driver/{id}', [DriverPageController::class, 'oneDriver']); //Один водитель
 Route::get('/driver/{id}/update', [DriverPageController::class, 'updateDriver']); //Страница редактирования водителей
+Route::get('/driver/{id}/cars', [DriverPageController::class, 'driverCars']); //Страница редактирования водителей
 
 Route::post('/', [DriverController::class, 'addNewDriver']); //Добавление нового водителя
 Route::post('/driver/delete', [DriverController::class, 'deleteDriver']); //Удаление водителя
@@ -19,4 +20,7 @@ Route::get('/car', [CarPagesController::class, 'allCars'])->name('allCars'); //�
 
 Route::post('/car', [CarController::class, 'addNewCar']); //Добавление новой машины
 Route::post('/car/delete', [CarController::class, 'deleteCar']); //Удаление машины
+
+Route::post('/driver/cars', [\App\Http\Controllers\DriverCarController::class, 'addConnect']); //Создание связи водителя и машины
+
 

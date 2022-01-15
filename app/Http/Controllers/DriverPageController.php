@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
 use App\Models\Driver;
 use Illuminate\Http\Request;
 
@@ -27,6 +28,15 @@ class DriverPageController extends Controller
         $driver = Driver::find($id);
         return view('Driver.driver', [
             "driver"=>$driver
+        ]);
+    }
+    //Выборка машин для водителя
+    public function driverCars($id){
+        $driver = Driver::find($id);
+        $cars = Car::get();
+        return view('Driver.cars', [
+            "cars"=>$cars,
+            "driver"=>$driver,
         ]);
     }
 }

@@ -14,5 +14,6 @@ class CarPagesController extends Controller
         return view('Car.all-cars', [
             "cars"=>$cars
         ]);
+
     }
 }
