@@ -7,7 +7,7 @@ use App\Models\Car;
 
 class CarPagesController extends Controller
 {
-    //Вывод страницы со всеми водителями
+    //Вывод страницы со всеми машинами
     public function allCars(){
 
         $cars = Car::get();

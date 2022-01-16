@@ -30,13 +30,6 @@
                         @enderror
                     </div>
 
-                    <div class="row mt-3">
-                        <label class="col-3" for="score">Счет:</label>
-                        <input type="number" class="col-2" name="score" id="score" required="required" value="{{ $driver->score }}">
-                        @error('number')
-                        <div class="alert alert-danger mt-2">{{ $message }}</div>
-                        @enderror
-                    </div>
 
                     <button type="submit" class="btn btn-success btn-lg mt-5 " style="width: 400px; height: 100px; font-size:150%;">Подтвердить</button>
                 </form>

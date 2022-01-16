@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\CarDriver;
 use App\Models\Driver;
 use Illuminate\Http\Request;
 
@@ -32,11 +33,13 @@ class DriverPageController extends Controller
     }
     //Выборка машин для водителя
     public function driverCars($id){
+        $connect = CarDriver::where('driver_id', $id)->get(); //нужно сделать так, чтобы уже выбранные машины не отображались
         $driver = Driver::find($id);
         $cars = Car::get();
         return view('Driver.cars', [
             "cars"=>$cars,
             "driver"=>$driver,
+            "connect"=>$connect,
         ]);
     }
 }

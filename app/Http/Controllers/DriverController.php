@@ -37,10 +37,9 @@ class DriverController extends Controller
     //редактирование водителя
     public function updateDriver(Request $request){
 
-        $validator = Validator::make($request->only('name', 'phone', 'score'), [
+        $validator = Validator::make($request->only('name', 'phone'), [
             'name' => ['required', 'string', 'min:5', 'max:100'],
             'phone' => ['required', 'string','min:17', 'max:17'],
-            'score' => ['required', 'int'],
         ])->validate();
         $data = $request->only('id', 'name', 'phone', 'score');
 
@@ -52,7 +51,6 @@ class DriverController extends Controller
 
         $newdriver->name = $data["name"];
         $newdriver->phone = $data["phone"];
-        $newdriver->score = $data["score"];
         $newdriver->save();
         return redirect()->to('/');
     }
